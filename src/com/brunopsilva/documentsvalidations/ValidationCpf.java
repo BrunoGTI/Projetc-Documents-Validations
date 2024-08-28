@@ -11,10 +11,10 @@ public class ValidationCpf {
         numberCpf = numberCpf.replaceAll("[^0-9]+", "");
 
         if(numberCpf.length() > MAXIMUM_SIZE){
-            log.attention("O número digitado é maior que 11 digitos.");
+            log.attention("O número digitado é maior que 11 digitos.\n");
 
         }else if(numberCpf.length() < MAXIMUM_SIZE){
-            log.attention("O número digitado é menor que 11 digitos.");
+            log.attention("O número digitado é menor que 11 digitos.\n");
 
         }else{
             this.numberCpf = numberCpf;
@@ -23,9 +23,9 @@ public class ValidationCpf {
         }
     }
 
-    public boolean validation(){
+    public String validation(){
 
-        return true;
+        return "ok";
 
     }
 

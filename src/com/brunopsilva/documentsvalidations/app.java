@@ -1,20 +1,42 @@
 package com.brunopsilva.documentsvalidations;
 
+import java.util.Scanner;
+
 public class app {
 
     public static void main(String[] args){
-        System.out.println("Project active");
 
+        Scanner scanner = new Scanner(System.in);
         Log log = new Log();
-        ValidationCpf validationCpf = new ValidationCpf("000.000.000-0");
 
-        boolean success = validationCpf.validation();
+        log.success("Project active");
 
-        if(!success){
-            log.result("CPF invalido.");
-        }else{
-            log.result("CPF valido.");
+        boolean status = true;
+
+        while(status){
+            log.out("Escolha uma das letras: (V) - Verificar CPF, (P) - Opção2, (E) - Sair");
+            String value = scanner.nextLine();
+
+            if(value.equalsIgnoreCase("v")){
+                log.out("Digite o número do cpf");
+                String numberCpf = scanner.nextLine();
+
+                ValidationCpf validationCpf = new ValidationCpf(numberCpf);
+
+                //log.success(validationCpf.validation());
+
+            }else if(value.equalsIgnoreCase("p")){
+                log.out("Opção 2");
+
+            }else if(value.equalsIgnoreCase("e")){
+                break;
+
+            }else{
+                log.out("Nenhuma das opções foi escolhida\n");
+            }
+
         }
+
     }
 
 }

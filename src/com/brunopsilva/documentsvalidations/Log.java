@@ -2,6 +2,10 @@ package com.brunopsilva.documentsvalidations;
 
 public class Log {
 
+    public void out(String message){
+        System.out.println(message);
+    }
+
     public void result(String message){
         System.out.println("Resultado: " + message);
     }
