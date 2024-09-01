@@ -18,12 +18,16 @@ public class app {
             String value = scanner.nextLine();
 
             if(value.equalsIgnoreCase("v")){
-                log.out("Digite o número do cpf");
+                log.out("\nDigite o número do cpf");
                 String numberCpf = scanner.nextLine();
 
                 ValidationCpf validationCpf = new ValidationCpf(numberCpf);
 
-                //log.success(validationCpf.validation());
+                if(validationCpf.validation()){
+                    log.success("CPF Válido!\n");
+                }else{
+                    log.attention("CPF Inválido!\n");
+                }
 
             }else if(value.equalsIgnoreCase("p")){
                 log.out("Opção 2");
