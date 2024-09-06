@@ -12,10 +12,8 @@ public class ValidationCpf {
 
         if(numberCpf.length() > MAXIMUM_SIZE){
             log.attention("O número digitado é maior que 11 digitos.\n");
-
         }else if(numberCpf.length() < MAXIMUM_SIZE){
             log.attention("O número digitado é menor que 11 digitos.\n");
-
         }else{
             this.numberCpf = numberCpf;
             validation();
@@ -23,7 +21,7 @@ public class ValidationCpf {
         }
     }
 
-    public boolean validation(){
+    public void validation(){
 
         String verifierOne = numberCpf.substring(9, 10);
         String verifierTwo = numberCpf.substring(10, 11);
@@ -33,11 +31,13 @@ public class ValidationCpf {
         if(Integer.parseInt(verifierOne) == digitGenerator.generator(true)){
 
             if(Integer.parseInt(verifierTwo) == digitGenerator.generator(false)) {
-                return true;
+                log.success("CPF Válido!\n");
+                return;
             }
 
         }
-        return false;
+
+        log.attention("CPF Inválido!\n");
     }
 
 }

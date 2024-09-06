@@ -23,12 +23,6 @@ public class app {
 
                 ValidationCpf validationCpf = new ValidationCpf(numberCpf);
 
-                if(validationCpf.validation()){
-                    log.success("CPF Válido!\n");
-                }else{
-                    log.attention("CPF Inválido!\n");
-                }
-
             }else if(value.equalsIgnoreCase("p")){
                 log.out("Opção 2");
 
