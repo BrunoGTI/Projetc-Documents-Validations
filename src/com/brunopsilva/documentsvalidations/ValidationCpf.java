@@ -25,57 +25,17 @@ public class ValidationCpf {
 
     public boolean validation(){
 
-
         String verifierOne = numberCpf.substring(9, 10);
         String verifierTwo = numberCpf.substring(10, 11);
 
-        int verifierValidatorOne;
-        int verifierValidatorTwo;
+        DigitGenerator digitGenerator = new DigitGenerator(numberCpf);
 
-        int sum = 0;
-        int remainder;
-        int multiplierOne = 10;
-        int multiplierTwe = 11;
+        if(Integer.parseInt(verifierOne) == digitGenerator.generator(true)){
 
-        for(int i = 0; i < 9; i++){
-            String digito = numberCpf.substring(i, i + 1);
-            int numero = Integer.parseInt(digito) * multiplierOne;
-            sum += numero;
-            multiplierOne--;
-        }
-
-        remainder = sum % 11;
-        remainder = 11 - remainder;
-
-        if (remainder < 10){
-            verifierValidatorOne = remainder;
-        }else{
-            verifierValidatorOne = 0;
-        }
-
-        if(Integer.parseInt(verifierOne) == verifierValidatorOne){
-            sum = 0;
-            remainder = 0;
-
-            for(int i = 0; i < 10; i++){
-                String digito = numberCpf.substring(i, i + 1);
-                int numero = Integer.parseInt(digito) * multiplierTwe;
-                sum += numero;
-                multiplierTwe--;
-            }
-
-            remainder = sum % 11;
-            remainder = 11 - remainder;
-
-            if (remainder < 10){
-                verifierValidatorTwo = remainder;
-            }else{
-                verifierValidatorTwo = 0;
-            }
-
-            if(Integer.parseInt(verifierTwo) == verifierValidatorTwo) {
+            if(Integer.parseInt(verifierTwo) == digitGenerator.generator(false)) {
                 return true;
             }
+
         }
         return false;
     }
