@@ -31,13 +31,19 @@ public class ValidationCpf {
         if(Integer.parseInt(verifierOne) == digitGenerator.generator(true)){
 
             if(Integer.parseInt(verifierTwo) == digitGenerator.generator(false)) {
-                log.success("CPF Válido!\n");
+                log.success("O CPF " + numberCpf.substring(0,3) + "." +
+                                        numberCpf.substring(3,6) + "." +
+                                        numberCpf.substring(6, 9) + "-" +
+                                        numberCpf.substring(9, 11) + " é válido!\n");
                 return;
             }
 
         }
 
-        log.attention("CPF Inválido!\n");
+        log.attention("O CPF " + numberCpf.substring(0,3) + "." +
+                                    numberCpf.substring(3,6) + "." +
+                                    numberCpf.substring(6, 9) + "-" +
+                                    numberCpf.substring(9, 11) + " é inválido!\n");
     }
 
 }
