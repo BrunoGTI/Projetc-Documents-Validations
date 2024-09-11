@@ -24,9 +24,9 @@ public class GeneratorCPF {
             log.result(numberCpf.substring(0,3) + "." +
                         numberCpf.substring(3,6) + "." +
                         numberCpf.substring(6, 9) + "-" +
-                        numberCpf.substring(9, 11) + "\n");
+                        numberCpf.substring(9, 11));
         }else{
-            log.result(numberCpf + "\n");
+            log.result(numberCpf);
         }
     }
 }

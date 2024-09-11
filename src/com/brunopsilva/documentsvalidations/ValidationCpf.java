@@ -11,9 +11,9 @@ public class ValidationCpf {
         numberCpf = numberCpf.replaceAll("[^0-9]+", "");
 
         if(numberCpf.length() > MAXIMUM_SIZE){
-            log.attention("O número digitado é maior que 11 digitos.\n");
+            log.attention("O número digitado é maior que 11 digitos.");
         }else if(numberCpf.length() < MAXIMUM_SIZE){
-            log.attention("O número digitado é menor que 11 digitos.\n");
+            log.attention("O número digitado é menor que 11 digitos.");
         }else{
             this.numberCpf = numberCpf;
             validation();
@@ -34,7 +34,7 @@ public class ValidationCpf {
                 log.success("O CPF " + numberCpf.substring(0,3) + "." +
                                         numberCpf.substring(3,6) + "." +
                                         numberCpf.substring(6, 9) + "-" +
-                                        numberCpf.substring(9, 11) + " é válido!\n");
+                                        numberCpf.substring(9, 11) + " é válido!");
                 return;
             }
 
@@ -43,7 +43,7 @@ public class ValidationCpf {
         log.attention("O CPF " + numberCpf.substring(0,3) + "." +
                                     numberCpf.substring(3,6) + "." +
                                     numberCpf.substring(6, 9) + "-" +
-                                    numberCpf.substring(9, 11) + " é inválido!\n");
+                                    numberCpf.substring(9, 11) + " é inválido!");
     }
 
 }

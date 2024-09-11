@@ -9,19 +9,27 @@ public class app {
         Scanner scanner = new Scanner(System.in);
         Log log = new Log();
 
-        log.success("Project active\n");
+        log.success("Project active");
 
         boolean status = true;
+        String value = "";
 
         while(status){
-            log.out("Digite uma das letras: (V) - Verificar CPF, (G) - Gerar CPF, (F) - Fechar");
-            String value = scanner.nextLine();
+            if(value.equalsIgnoreCase("")){
+                log.out("\nDigite uma das letras: (V) - Verificar CPF, (G) - Gerar CPF, (F) - Fechar");
+                value = scanner.nextLine();
+            }
 
             if(value.equalsIgnoreCase("v")){
                 log.out("\nDigite o número do cpf, digite (R) para retornar");
-                String numberCpf = scanner.nextLine();
+                String digit = scanner.nextLine();
 
-                ValidationCpf validationCpf = new ValidationCpf(numberCpf);
+                if(digit.equalsIgnoreCase("r")){
+                    value = "";
+                }else{
+                    ValidationCpf validationCpf = new ValidationCpf(digit);
+                    value = "v";
+                }
 
             }else if(value.equalsIgnoreCase("g")){
                 GeneratorCPF generatorCPF = new GeneratorCPF();
@@ -31,12 +39,15 @@ public class app {
 
                 if(score.equalsIgnoreCase("c")){
                     generatorCPF.generator(true);
+                    value = "g";
                 }else if(score.equalsIgnoreCase("s")){
                     generatorCPF.generator(false);
+                    value = "g";
                 }else if(score.equalsIgnoreCase("r")){
-                    return;
+                    value = "";
                 }else{
                     log.out("Nenhuma das opções foi escolhida\n");
+                    value = "g";
                 }
 
             }else if(value.equalsIgnoreCase("f")){
